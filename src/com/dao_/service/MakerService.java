@@ -21,4 +21,28 @@ public class MakerService {
         int update = makerDAO.update(sql, Mno, Mname, Mplace, Mphone, Memail);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
+
+    public String updateMname(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Maker SET Mname = ? WHERE Mno = ?";
+        int update = makerDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateMplace(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Maker SET Mname = ? WHERE Mno = ?";
+        int update = makerDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateMphone(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Maker SET Mphone = ? WHERE Mno = ?";
+        int update = makerDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateMemail(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Maker SET Memail = ? WHERE Mno = ?";
+        int update = makerDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
 }

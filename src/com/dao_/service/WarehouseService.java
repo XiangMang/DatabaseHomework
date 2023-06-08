@@ -23,4 +23,16 @@ public class WarehouseService {
         int update = warehouseDAO.update(sql, Wno, Wclass, Wnum);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
+
+    public String updateWclass(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Warehouse SET Wclass = ? WHERE Wno = ?";
+        int update = warehouseDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateWnum(String updateId, Integer updateValue) {
+        String sql = "UPDATE DBHW.Warehouse SET Wnum = ? WHERE Wno = ?";
+        int update = warehouseDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
 }

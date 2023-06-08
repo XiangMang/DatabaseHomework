@@ -5,9 +5,11 @@ import com.dao_.domain.*;
 import com.dao_.service.*;
 import com.dao_.utils.Utility;
 
+import java.lang.invoke.SwitchPoint;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 主界面
@@ -48,7 +50,8 @@ public class homeView {
                         System.out.println("\t\t 1. 查询");
                         System.out.println("\t\t 2. 删除");
                         System.out.println("\t\t 3. 增加");
-                        System.out.println("\t\t 4. 退出");
+                        System.out.println("\t\t 4. 更改");
+                        System.out.println("\t\t 5. 退出");
                         System.out.print("请输入你的选择:");
                         key = Utility.readString(1);
                         switch (key) {
@@ -206,6 +209,109 @@ public class homeView {
                                 }
                                 break;
                             case "4" :
+                                System.out.println("=============更改操作=============");
+                                System.out.println("\t\t 1. Employee");
+                                System.out.println("\t\t 2. Food");
+                                System.out.println("\t\t 3. Maker");
+                                System.out.println("\t\t 4. Warehouse");
+                                System.out.print("选择你所要操作的表:");
+                                String key4 = Utility.readString(1);
+                                switch (key4) {
+                                    case "1" :
+                                        System.out.print("请输入你所要更改的信息的编号:");
+                                        String updateId = Utility.readString(10);
+                                        System.out.print("请输入你所要更改的信息的属性:");
+                                        String updateKey = Utility.readString(20);
+                                        System.out.print("请输入更改后的值:");
+                                        switch (updateKey) {
+                                            case "Ename" :
+                                                String updateValue = Utility.readString(20);
+                                                System.out.println(employeeService.updateEname(updateId, updateValue));
+                                                break;
+                                            case "Esex" :
+                                                String updateValue1 = Utility.readString(20);
+                                                System.out.print(employeeService.updateEsex(updateId, updateValue1));
+                                                break;
+                                            case "Eage" :
+                                                Integer updateValue2 = Utility.readInt();
+                                                System.out.println(employeeService.updateEage(updateId, updateValue2));
+                                                break;
+                                            case "Eid" :
+                                                Integer updateValue3 = Utility.readInt();
+                                                System.out.println(employeeService.updateEid(updateId, updateValue3));
+                                                break;
+                                        }
+                                        break;
+                                    case "2" :
+                                        System.out.print("请输入你所要更改的信息的编号:");
+                                        String updateIdOfFood = Utility.readString(10);
+                                        System.out.print("请输入你所要更改的信息的属性:");
+                                        String updateKeyOfFood = Utility.readString(20);
+                                        System.out.print("请输入更改后的值:");
+                                        switch (updateKeyOfFood) {
+                                            case "Fname" :
+                                                String updateFoodeOfFname = Utility.readString(20);
+                                                System.out.print(foodService.updateFname(updateIdOfFood, updateFoodeOfFname));
+                                                break;
+                                            case "Fclass" :
+                                                String updateFoodOfFclass = Utility.readString(20);
+                                                System.out.print(foodService.updateFclass(updateIdOfFood, updateFoodOfFclass));
+                                                break;
+                                            case "Fplace" :
+                                                String updateFoodOfFplace = Utility.readString(20);
+                                                System.out.print(foodService.updateFplace(updateIdOfFood, updateFoodOfFplace));
+                                                break;
+                                            case "Fid" :
+                                                String updateFoodOfFid = Utility.readString(20);
+                                                System.out.print(foodService.updateFid(updateIdOfFood, updateFoodOfFid));
+                                                break;
+                                        }
+                                        break;
+                                    case "3" :
+                                        System.out.print("请输入你所要更改的信息的编号:");
+                                        String updateIdOfMaker = Utility.readString(10);
+                                        System.out.print("请输入你所要更改的信息的属性:");
+                                        String updateKeyOfMaker = Utility.readString(20);
+                                        System.out.print("请输入更改后的值:");
+                                        switch (updateKeyOfMaker) {
+                                            case "Mname" :
+                                                String updateMakerOfMname = Utility.readString(20);
+                                                System.out.print(makerService.updateMname(updateIdOfMaker, updateMakerOfMname));
+                                                break;
+                                            case "Mplace" :
+                                                String updateMakerOfMplace = Utility.readString(20);
+                                                System.out.print(makerService.updateMplace(updateIdOfMaker, updateMakerOfMplace));
+                                                break;
+                                            case "Mphone" :
+                                                String updateMakerOfMphone = Utility.readString(20);
+                                                System.out.print(makerService.updateMphone(updateIdOfMaker, updateMakerOfMphone));
+                                                break;
+                                            case "Memail" :
+                                                String updateMakerOfMemail = Utility.readString(20);
+                                                System.out.print(makerService.updateMemail(updateIdOfMaker, updateMakerOfMemail));
+                                                break;
+                                        }
+                                        break;
+                                    case "4" :
+                                        System.out.print("请输入你所要更改的信息的编号:");
+                                        String updateIdOfWarehouse = Utility.readString(10);
+                                        System.out.print("请输入你所要更改的信息的属性:");
+                                        String updateKeyOfWarehouse = Utility.readString(20);
+                                        System.out.print("请输入更改后的值:");
+                                        switch (updateKeyOfWarehouse) {
+                                            case "Wclass" :
+                                                String updateWarehouseOfWclass = Utility.readString(20);
+                                                System.out.print(warehouseService.updateWclass(updateIdOfWarehouse, updateWarehouseOfWclass));
+                                                break;
+                                            case "Wnum" :
+                                                Integer updateWarehouseOfWnum = Utility.readInt(20);
+                                                System.out.print(warehouseService.updateWnum(updateIdOfWarehouse, updateWarehouseOfWnum));
+                                                break;
+                                        }
+                                        break;
+                                }
+                                break;
+                            case "5" :
                                 loop = false;
                                 break;
                             default:

@@ -21,4 +21,28 @@ public class FoodService {
         int update = foodDAO.update(sql, Fno, Fname, Fclass, Wno, Eno);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
+
+    public String updateFname(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Food SET Fname = ? WHERE Fno = ?";
+        int update = foodDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateFclass(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Food SET Fclass = ? WHERE Fno = ?";
+        int update = foodDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateFplace(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Food SET Fplace = ? WHERE Fno = ?";
+        int update = foodDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
+
+    public String updateFid(String updateId, String updateValue) {
+        String sql = "UPDATE DBHW.Food SET Fid = ? WHERE Fno = ?";
+        int update = foodDAO.update(sql, updateValue, updateId);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
 }
