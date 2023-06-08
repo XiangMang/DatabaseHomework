@@ -315,7 +315,7 @@ public class homeView {
                                                 break;
                                             case "Esex" :
                                                 String updateValue1 = Utility.readString(20);
-                                                System.out.print(employeeService.updateEsex(updateId, updateValue1));
+                                                System.out.println(employeeService.updateEsex(updateId, updateValue1));
                                                 break;
                                             case "Eage" :
                                                 Integer updateValue2 = Utility.readInt();
@@ -336,19 +336,19 @@ public class homeView {
                                         switch (updateKeyOfFood) {
                                             case "Fname" :
                                                 String updateFoodeOfFname = Utility.readString(20);
-                                                System.out.print(foodService.updateFname(updateIdOfFood, updateFoodeOfFname));
+                                                System.out.println(foodService.updateFname(updateIdOfFood, updateFoodeOfFname));
                                                 break;
                                             case "Fclass" :
                                                 String updateFoodOfFclass = Utility.readString(20);
-                                                System.out.print(foodService.updateFclass(updateIdOfFood, updateFoodOfFclass));
+                                                System.out.println(foodService.updateFclass(updateIdOfFood, updateFoodOfFclass));
                                                 break;
                                             case "Fplace" :
                                                 String updateFoodOfFplace = Utility.readString(20);
-                                                System.out.print(foodService.updateFplace(updateIdOfFood, updateFoodOfFplace));
+                                                System.out.println(foodService.updateFplace(updateIdOfFood, updateFoodOfFplace));
                                                 break;
                                             case "Fid" :
                                                 String updateFoodOfFid = Utility.readString(20);
-                                                System.out.print(foodService.updateFid(updateIdOfFood, updateFoodOfFid));
+                                                System.out.println(foodService.updateFid(updateIdOfFood, updateFoodOfFid));
                                                 break;
                                         }
                                         break;
@@ -361,19 +361,19 @@ public class homeView {
                                         switch (updateKeyOfMaker) {
                                             case "Mname" :
                                                 String updateMakerOfMname = Utility.readString(20);
-                                                System.out.print(makerService.updateMname(updateIdOfMaker, updateMakerOfMname));
+                                                System.out.println(makerService.updateMname(updateIdOfMaker, updateMakerOfMname));
                                                 break;
                                             case "Mplace" :
                                                 String updateMakerOfMplace = Utility.readString(20);
-                                                System.out.print(makerService.updateMplace(updateIdOfMaker, updateMakerOfMplace));
+                                                System.out.println(makerService.updateMplace(updateIdOfMaker, updateMakerOfMplace));
                                                 break;
                                             case "Mphone" :
                                                 String updateMakerOfMphone = Utility.readString(20);
-                                                System.out.print(makerService.updateMphone(updateIdOfMaker, updateMakerOfMphone));
+                                                System.out.println(makerService.updateMphone(updateIdOfMaker, updateMakerOfMphone));
                                                 break;
                                             case "Memail" :
                                                 String updateMakerOfMemail = Utility.readString(20);
-                                                System.out.print(makerService.updateMemail(updateIdOfMaker, updateMakerOfMemail));
+                                                System.out.println(makerService.updateMemail(updateIdOfMaker, updateMakerOfMemail));
                                                 break;
                                         }
                                         break;
@@ -386,11 +386,11 @@ public class homeView {
                                         switch (updateKeyOfWarehouse) {
                                             case "Wclass" :
                                                 String updateWarehouseOfWclass = Utility.readString(20);
-                                                System.out.print(warehouseService.updateWclass(updateIdOfWarehouse, updateWarehouseOfWclass));
+                                                System.out.println(warehouseService.updateWclass(updateIdOfWarehouse, updateWarehouseOfWclass));
                                                 break;
                                             case "Wnum" :
                                                 Integer updateWarehouseOfWnum = Utility.readInt(20);
-                                                System.out.print(warehouseService.updateWnum(updateIdOfWarehouse, updateWarehouseOfWnum));
+                                                System.out.println(warehouseService.updateWnum(updateIdOfWarehouse, updateWarehouseOfWnum));
                                                 break;
                                         }
                                         break;
