@@ -12,17 +12,13 @@ public class FoodService {
     }
 
     public String deleteSingle(String deleteNum) {
-        int update = foodDAO.update("DELETE FROM DBHW.Food WHERE Bno = ?", deleteNum);
+        int update = foodDAO.update("DELETE FROM DBHW.Food WHERE Fno = ?", deleteNum);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
 
     public String add(String Fno, String Fname, String Fclass, String Wno, String Eno) {
-        Object fno = Fno;
-        Object fname = Fname;
-        Object fcalss = Fclass;
-        Object wno = Wno;
-        Object eno = Eno;
-        int update = foodDAO.update("INSERT INTO Food VALUES ( ?, ?, ?, ?, ?)", 1, fno, 2, fname, 3, fcalss, 4, wno, 5, eno);
+        String sql = "INSERT INTO DBHW.Food VALUES ( ?, ?, ?, ?, ?)";
+        int update = foodDAO.update(sql, Fno, Fname, Fclass, Wno, Eno);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
 }

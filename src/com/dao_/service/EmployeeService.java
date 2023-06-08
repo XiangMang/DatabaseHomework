@@ -15,4 +15,10 @@ public class EmployeeService {
         int update = employeeDAO.update("DELETE FROM DBHW.Employee WHERE Eno = ?", deleteNum);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
+
+    public String add(String Eno, String Ename, String Esex, Integer Eage, String Eid) {
+        String sql = "INSERT INTO DBHW.Employee VALUES ( ?, ?, ?, ?, ?)";
+        int update = employeeDAO.update(sql, Eno, Ename, Esex, Eage, Eid);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
 }

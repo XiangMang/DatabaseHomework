@@ -15,4 +15,10 @@ public class MakerService {
         int update = makerDAO.update("DELETE FROM DBHW.Maker WHERE Mno = ?", deleteNum);
         return update > 0 ? "执行成功" : "该操作对表没有影响";
     }
+
+    public String add(String Mno, String Mname, String Mplace, String Mphone, String Memail) {
+        String sql = "INSERT INTO DBHW.Maker VALUES ( ?, ?, ?, ?, ?)";
+        int update = makerDAO.update(sql, Mno, Mname, Mplace, Mphone, Memail);
+        return update > 0 ? "执行成功" : "该操作对表没有影响";
+    }
 }

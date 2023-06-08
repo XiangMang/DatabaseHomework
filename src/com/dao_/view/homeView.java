@@ -20,7 +20,7 @@ public class homeView {
     private String key = "";
     // 作为返回信息的编号
     int num = 1;
-    // 调用 domain 的属性
+    // 调用 domain 的属性1
     private BillService billService = new BillService();
     private EmployeeService employeeService = new EmployeeService();
     private FoodService foodService = new FoodService();
@@ -47,7 +47,8 @@ public class homeView {
                         System.out.println("=========仓库系统(二级菜单)=========");
                         System.out.println("\t\t 1. 查询");
                         System.out.println("\t\t 2. 删除");
-                        System.out.println("\t\t 3. 退出");
+                        System.out.println("\t\t 3. 增加");
+                        System.out.println("\t\t 4. 退出");
                         System.out.print("请输入你的选择:");
                         key = Utility.readString(1);
                         switch (key) {
@@ -146,6 +147,65 @@ public class homeView {
                                 }
                                 break;
                             case "3" :
+                                System.out.println("=============插入操作=============");
+                                System.out.println("\t\t 1. Employee");
+                                System.out.println("\t\t 2. Food");
+                                System.out.println("\t\t 3. Maker");
+                                System.out.println("\t\t 4. Warehouse");
+                                System.out.print("选择你所要操作的表:");
+                                String key3 = Utility.readString(1);
+                                switch (key3) {
+                                    case "1" :
+                                        System.out.print("请输入Eno:");
+                                        String Eno = Utility.readString(10);
+                                        System.out.print("请输入Ename:");
+                                        String Ename = Utility.readString(20);
+                                        System.out.print("Esex:");
+                                        String Esex = Utility.readString(20);
+                                        System.out.print("请输入Eage:");
+                                        Integer Eage = Utility.readInt();
+                                        System.out.print("请输入Eid:");
+                                        String Eid = Utility.readString(10);
+                                        System.out.println(employeeService.add(Eno, Ename, Esex, Eage, Eid));
+                                        break;
+                                    case "2" :
+                                        System.out.print("请输入Fno:");
+                                        String Fno = Utility.readString(10);
+                                        System.out.print("请输入Fname:");
+                                        String Fname = Utility.readString(20);
+                                        System.out.print("请输入Fclass:");
+                                        String Fclass = Utility.readString(20);
+                                        System.out.print("请输入Wno:");
+                                        String Wno = Utility.readString(10);
+                                        System.out.print("请输入Eno:");
+                                        String Eno1 = Utility.readString(10);
+                                        System.out.println(foodService.add(Fno, Fname, Fclass, Wno, Eno1));
+                                        break;
+                                    case "3" :
+                                        System.out.print("请输入Mno:");
+                                        String Mno = Utility.readString(10);
+                                        System.out.print("请输入Mname:");
+                                        String Mname = Utility.readString(20);
+                                        System.out.print("请输入Mplace:");
+                                        String Mplace = Utility.readString(20);
+                                        System.out.print("请输入Mphone:");
+                                        String Mphone = Utility.readString(10);
+                                        System.out.print("请输入Memail:");
+                                        String Meamil = Utility.readString(10);
+                                        System.out.println(makerService.add(Mno, Mname, Mplace, Mphone, Meamil));
+                                        break;
+                                    case "4" :
+                                        System.out.print("请输入Wno:");
+                                        String Wno1 = Utility.readString(10);
+                                        System.out.print("请输入Wclass:");
+                                        String Wclass = Utility.readString(20);
+                                        System.out.print("请输入Wnum:");
+                                        Integer Wnum = Utility.readInt();
+                                        System.out.println(warehouseService.add(Wno1, Wclass, Wnum));
+                                        break;
+                                }
+                                break;
+                            case "4" :
                                 loop = false;
                                 break;
                             default:
