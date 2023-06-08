@@ -1,10 +1,8 @@
-package com.jdbc.datasource;
+package com.dao_.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 import javax.sql.DataSource;
-import java.io.IOException;
-import java.nio.file.FileStore;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.*;

@@ -1,2 +1,165 @@
-package com.dao_.view;public class homeView {
+package com.dao_.view;
+
+import com.alibaba.druid.sql.dialect.phoenix.ast.PhoenixUpsertStatement;
+import com.dao_.domain.*;
+import com.dao_.service.*;
+import com.dao_.utils.Utility;
+
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * 主界面
+ */
+public class homeView {
+
+    // 控制是否退出菜单
+    private boolean loop = true;
+    // 接收用户的选择
+    private String key = "";
+    // 作为返回信息的编号
+    int num = 1;
+    // 调用 domain 的属性
+    private BillService billService = new BillService();
+    private EmployeeService employeeService = new EmployeeService();
+    private FoodService foodService = new FoodService();
+    private MakerService makerService = new MakerService();
+    private OrdersService ordersService = new OrdersService();
+    private WarehouseService warehouseService = new WarehouseService();
+
+    public static void main(String[] args) {
+        new homeView().mainMenu();
+    }
+
+    // 显示主菜单
+    public void mainMenu() {
+        while (loop) {
+            System.out.println("=============仓库系统=============");
+            System.out.println("\t\t 1. 登录仓库系统");
+            System.out.println("\t\t 2. 退出仓库系统");
+            System.out.print("请输入你的选择:");
+            key = Utility.readString(1);
+            switch (key) {
+                case "1" :
+                    // 显示二级菜单
+                    while (loop) {
+                        System.out.println("=========仓库系统(二级菜单)=========");
+                        System.out.println("\t\t 1. 查询");
+                        System.out.println("\t\t 2. 删除");
+                        System.out.println("\t\t 3. 退出");
+                        System.out.print("请输入你的选择:");
+                        key = Utility.readString(1);
+                        switch (key) {
+                            case "1" :
+                                System.out.println("=============查询操作=============");
+                                System.out.println("\t\t 1. Bill");
+                                System.out.println("\t\t 2. Employee");
+                                System.out.println("\t\t 3. Food");
+                                System.out.println("\t\t 4. Maker");
+                                System.out.println("\t\t 5. Orders");
+                                System.out.println("\t\t 6. Warehouse");
+                                System.out.print("选择你所要操作的表:");
+                                String key1 = Utility.readString(1);
+                                switch (key1) {
+                                    case "1" :
+                                        List<Bill> list = billService.list();
+                                        num = 1;
+                                        for (Bill bill : list) {
+                                            System.out.print((num++) + ". ");
+                                            System.out.println(bill);
+                                        }
+                                        break;
+                                    case "2" :
+                                        List<Employee> list1 = employeeService.list();
+                                        num = 1;
+                                        for (Employee employee : list1) {
+                                            System.out.print((num++) + ". ");
+                                            System.out.println(employee);
+                                        }
+                                        break;
+                                    case "3" :
+                                        List<Food> list2 = foodService.list();
+                                        num = 1;
+                                        for (Food food : list2) {
+                                            System.out.print((num++) + ". ");
+                                            System.out.println(food);
+                                        }
+                                        break;
+                                    case "4" :
+                                        List<Maker> list3 = makerService.list();
+                                        num = 1;
+                                        for (Maker maker : list3) {
+                                            System.out.print((num++) + ". ");
+                                            System.out.println(maker);
+                                        }
+                                        break;
+                                    case "5" :
+                                        List<Orders> list4 = ordersService.list();
+                                        num = 1;
+                                        for (Orders orders : list4) {
+                                            System.out.print((num++) + ". ");
+                                            System.out.println(orders);
+                                        }
+                                        break;
+                                    case "6" :
+                                        List<Warehouse> list5 = warehouseService.list();
+                                        num = 1;
+                                        for (Warehouse warehouse : list5) {
+                                            System.out.print((num++) + ". ");
+                                            System.out.println(warehouse);
+                                        }
+                                        break;
+                                }
+                                break;
+                            case "2" :
+                                System.out.println("=============删除操作=============");
+                                System.out.println("\t\t 1. Bill");
+                                System.out.println("\t\t 2. Employee");
+                                System.out.println("\t\t 3. Food");
+                                System.out.println("\t\t 4. Maker");
+                                System.out.println("\t\t 5. Orders");
+                                System.out.println("\t\t 6. Warehouse");
+                                System.out.print("选择你所要操作的表:");
+                                String key2 = Utility.readString(1);
+                                System.out.print("请输入你想删除的信息的编号:");
+                                String deleteNum = Utility.readString(5);
+                                switch (key2) {
+                                    case "1" :
+                                        System.out.println(billService.deleteSingle(deleteNum));
+                                        break;
+                                    case "2" :
+                                        System.out.println(employeeService.deleteSingle(deleteNum));
+                                        break;
+                                    case "3" :
+                                        System.out.println(foodService.deleteSingle(deleteNum));
+                                        break;
+                                    case "4" :
+                                        System.out.println(makerService.deleteSingle(deleteNum));
+                                        break;
+                                    case "5" :
+                                        System.out.println(ordersService.deleteSingle(deleteNum));
+                                        break;
+                                    case "6" :
+                                        System.out.println(warehouseService.deleteSingle(deleteNum));
+                                        break;
+                                }
+                                break;
+                            case "3" :
+                                loop = false;
+                                break;
+                            default:
+                                System.out.println("你的输入有误, 请重新输入!");
+                                break;
+                        }
+                    }
+                    break;
+                case "2" :
+                    loop = false;
+                    break;
+            }
+        }
+
+        System.out.println("你退出了仓库系统");
+    }
 }

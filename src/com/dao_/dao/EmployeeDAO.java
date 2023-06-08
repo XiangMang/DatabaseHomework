@@ -1,2 +1,7 @@
-package com.dao_.dao;public class EmployeeDAO {
+package com.dao_.dao;
+
+import com.dao_.domain.Employee;
+
+public class EmployeeDAO extends BasicDAO<Employee> {
+
 }
