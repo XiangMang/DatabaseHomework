@@ -1,6 +1,7 @@
 package com.dao_.service;
 
 import com.dao_.dao.MakerDAO;
+import com.dao_.domain.Food;
 import com.dao_.domain.Maker;
 
 import java.util.List;
@@ -9,6 +10,10 @@ public class MakerService {
     private MakerDAO makerDAO = new MakerDAO();
     public List<Maker> list() {
         return makerDAO.queryMultiply("SELECT * FROM DBHW.Maker", Maker.class);
+    }
+
+    public Maker querySingle(String id) {
+        return makerDAO.querySingle("SELECT * FROM DBHW.Maker WHERE Mno = ?", Maker.class, id);
     }
 
     public String deleteSingle(String deleteNum) {

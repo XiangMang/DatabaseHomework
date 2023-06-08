@@ -1,6 +1,7 @@
 package com.dao_.service;
 
 import com.dao_.dao.EmployeeDAO;
+import com.dao_.domain.Bill;
 import com.dao_.domain.Employee;
 
 import java.util.List;
@@ -10,6 +11,10 @@ public class EmployeeService {
     private EmployeeDAO employeeDAO = new EmployeeDAO();
     public List<Employee> list() {
         return employeeDAO.queryMultiply("SELECT * FROM DBHW.Employee", Employee.class);
+    }
+
+    public Employee querySingle(String id) {
+        return employeeDAO.querySingle("SELECT * FROM DBHW.Employee WHERE Eno = ?", Employee.class, id);
     }
 
     public String deleteSingle(String deleteNum) {

@@ -29,7 +29,7 @@ public class TestDAO {
         System.out.println("===单行单列查询结果");
         System.out.println(object);
 
-        // 4. dml操作
+         // 4. dml操作
 //        employeeDAO.update(sql, .......);
 //        System.out.println(update > 0 ? "执行成功" : "执行没有影响表");
     }

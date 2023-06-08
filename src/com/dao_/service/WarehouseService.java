@@ -1,6 +1,7 @@
 package com.dao_.service;
 
 import com.dao_.dao.WarehouseDAO;
+import com.dao_.domain.Orders;
 import com.dao_.domain.Warehouse;
 import com.mysql.cj.util.DnsSrv;
 import org.w3c.dom.ls.LSException;
@@ -11,6 +12,10 @@ public class WarehouseService {
     private WarehouseDAO warehouseDAO = new WarehouseDAO();
     public List<Warehouse> list() {
         return warehouseDAO.queryMultiply("SELECT * FROM DBHW.Warehouse", Warehouse.class);
+    }
+
+    public Warehouse querySingle(String id) {
+        return warehouseDAO.querySingle("SELECT * FROM DBHW.Warehouse WHERE Wno = ?", Warehouse.class, id);
     }
 
     public String deleteSingle(String deleteNum) {

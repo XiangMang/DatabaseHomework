@@ -1,15 +1,10 @@
 package com.dao_.view;
 
-import com.alibaba.druid.sql.dialect.phoenix.ast.PhoenixUpsertStatement;
 import com.dao_.domain.*;
 import com.dao_.service.*;
 import com.dao_.utils.Utility;
-
-import java.lang.invoke.SwitchPoint;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * 主界面
@@ -67,51 +62,141 @@ public class homeView {
                                 String key1 = Utility.readString(1);
                                 switch (key1) {
                                     case "1" :
-                                        List<Bill> list = billService.list();
-                                        num = 1;
-                                        for (Bill bill : list) {
-                                            System.out.print((num++) + ". ");
-                                            System.out.println(bill);
+                                        System.out.println("=============请选择查询类型=============");
+                                        System.out.println("\t\t 1. 整表查询");
+                                        System.out.println("\t\t 2. 依据编号单条查询");
+                                        System.out.print("请输入你的选择:");
+                                        String keyOfBill = Utility.readString(1);
+                                        switch (keyOfBill) {
+                                            case "1" :
+                                                List<Bill> list = billService.list();
+                                                num = 1;
+                                                for (Bill bill : list) {
+                                                    System.out.print((num++) + ". ");
+                                                    System.out.println(bill);
+                                                }
+                                                break;
+                                            case "2" :
+                                                System.out.print("请输入你所要查询的信息的编号:");
+                                                String idOfBill = Utility.readString(10);
+                                                Bill bill = billService.querySingle(idOfBill);
+                                                System.out.println(bill);
+                                                break;
                                         }
                                         break;
                                     case "2" :
-                                        List<Employee> list1 = employeeService.list();
-                                        num = 1;
-                                        for (Employee employee : list1) {
-                                            System.out.print((num++) + ". ");
-                                            System.out.println(employee);
+                                        System.out.println("=============请选择查询类型=============");
+                                        System.out.println("\t\t 1. 整表查询");
+                                        System.out.println("\t\t 2. 依据编号单条查询");
+                                        System.out.print("请输入你的选择:");
+                                        String keyOfEmployee = Utility.readString(1);
+                                        switch (keyOfEmployee) {
+                                            case "1" :
+                                                List<Employee> list = employeeService.list();
+                                                num = 1;
+                                                for (Employee employee : list) {
+                                                    System.out.print((num++) + ". ");
+                                                    System.out.println(employee);
+                                                }
+                                                break;
+                                            case "2" :
+                                                System.out.print("请输入你所要查询的信息的编号:");
+                                                String idOfEmployee = Utility.readString(10);
+                                                Employee employee = employeeService.querySingle(idOfEmployee);
+                                                System.out.println(employee);
+                                                break;
                                         }
                                         break;
                                     case "3" :
-                                        List<Food> list2 = foodService.list();
-                                        num = 1;
-                                        for (Food food : list2) {
-                                            System.out.print((num++) + ". ");
-                                            System.out.println(food);
+                                        System.out.println("=============请选择查询类型=============");
+                                        System.out.println("\t\t 1. 整表查询");
+                                        System.out.println("\t\t 2. 依据编号单条查询");
+                                        System.out.print("请输入你的选择:");
+                                        String keyOfFood = Utility.readString(1);
+                                        switch (keyOfFood) {
+                                            case "1" :
+                                                List<Food> list2 = foodService.list();
+                                                num = 1;
+                                                for (Food food : list2) {
+                                                    System.out.print((num++) + ". ");
+                                                    System.out.println(food);
+                                                }
+                                                break;
+                                            case "2" :
+                                                System.out.print("请输入你所要查询的信息的编号:");
+                                                String idOfFood = Utility.readString(10);
+                                                Food food = foodService.querySingle(idOfFood);
+                                                System.out.println(food);
+                                                break;
                                         }
                                         break;
                                     case "4" :
-                                        List<Maker> list3 = makerService.list();
-                                        num = 1;
-                                        for (Maker maker : list3) {
-                                            System.out.print((num++) + ". ");
-                                            System.out.println(maker);
+                                        System.out.println("=============请选择查询类型=============");
+                                        System.out.println("\t\t 1. 整表查询");
+                                        System.out.println("\t\t 2. 依据编号单条查询");
+                                        System.out.print("请输入你的选择:");
+                                        String keyOfMaker = Utility.readString(1);
+                                        switch (keyOfMaker) {
+                                            case "1" :
+                                                List<Maker> list3 = makerService.list();
+                                                num = 1;
+                                                for (Maker maker : list3) {
+                                                    System.out.print((num++) + ". ");
+                                                    System.out.println(maker);
+                                                }
+                                                break;
+                                            case "2" :
+                                                System.out.print("请输入你所要查询的信息的编号:");
+                                                String idOfMaker = Utility.readString(10);
+                                                Maker maker = makerService.querySingle(idOfMaker);
+                                                System.out.println(maker);
+                                                break;
                                         }
                                         break;
                                     case "5" :
-                                        List<Orders> list4 = ordersService.list();
-                                        num = 1;
-                                        for (Orders orders : list4) {
-                                            System.out.print((num++) + ". ");
-                                            System.out.println(orders);
+                                        System.out.println("=============请选择查询类型=============");
+                                        System.out.println("\t\t 1. 整表查询");
+                                        System.out.println("\t\t 2. 依据编号单条查询");
+                                        System.out.print("请输入你的选择:");
+                                        String keyOfOrders = Utility.readString(1);
+                                        switch (keyOfOrders) {
+                                            case "1" :
+                                                List<Orders> list4 = ordersService.list();
+                                                num = 1;
+                                                for (Orders orders : list4) {
+                                                    System.out.print((num++) + ". ");
+                                                    System.out.println(orders);
+                                                }
+                                                break;
+                                            case "2" :
+                                                System.out.print("请输入你所要查询的信息的编号:");
+                                                String idOfOrders = Utility.readString(10);
+                                                Orders orders = ordersService.querySingle(idOfOrders);
+                                                System.out.println(orders);
+                                                break;
                                         }
                                         break;
                                     case "6" :
-                                        List<Warehouse> list5 = warehouseService.list();
-                                        num = 1;
-                                        for (Warehouse warehouse : list5) {
-                                            System.out.print((num++) + ". ");
-                                            System.out.println(warehouse);
+                                        System.out.println("=============请选择查询类型=============");
+                                        System.out.println("\t\t 1. 整表查询");
+                                        System.out.println("\t\t 2. 依据编号单条查询");
+                                        System.out.print("请输入你的选择:");
+                                        String keyOfWarehouse = Utility.readString(1);
+                                        switch (keyOfWarehouse) {
+                                            case "1" :
+                                                List<Warehouse> list5 = warehouseService.list();
+                                                num = 1;
+                                                for (Warehouse warehouse : list5) {
+                                                    System.out.print((num++) + ". ");
+                                                    System.out.println(warehouse);
+                                                }
+                                                break;
+                                            case "2" :
+                                                System.out.print("请输入你所要查询的信息的编号:");
+                                                String idOfWarehouse = Utility.readString(10);
+                                                Warehouse warehouse = warehouseService.querySingle(idOfWarehouse);
+                                                System.out.println(warehouse);
+                                                break;
                                         }
                                         break;
                                 }

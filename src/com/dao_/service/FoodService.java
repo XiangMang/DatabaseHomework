@@ -1,6 +1,7 @@
 package com.dao_.service;
 
 import com.dao_.dao.FoodDAO;
+import com.dao_.domain.Employee;
 import com.dao_.domain.Food;
 
 import java.util.List;
@@ -9,6 +10,10 @@ public class FoodService {
     private FoodDAO foodDAO = new FoodDAO();
     public List<Food> list() {
         return foodDAO.queryMultiply("SELECT * FROM DBHW.Food", Food.class);
+    }
+
+    public Food querySingle(String id) {
+        return foodDAO.querySingle("SELECT * FROM DBHW.Food WHERE Fno = ?", Food.class, id);
     }
 
     public String deleteSingle(String deleteNum) {

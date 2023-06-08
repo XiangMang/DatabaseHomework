@@ -14,6 +14,10 @@ public class BillService {
         return billDAO.queryMultiply("SELECT * FROM DBHW.Bill", Bill.class);
     }
 
+    public Bill querySingle(String id) {
+        return billDAO.querySingle("SELECT * FROM DBHW.Bill WHERE Bno = ?", Bill.class, id);
+    }
+
     public String deleteSingle(String deleteNum) {
         int update = billDAO.update("DELETE FROM DBHW.Bill WHERE Bno = ?", deleteNum);
         return update > 0 ? "执行成功" : "该操作对表没有影响";

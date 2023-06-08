@@ -1,6 +1,7 @@
 package com.dao_.service;
 
 import com.dao_.dao.OrdersDAO;
+import com.dao_.domain.Maker;
 import com.dao_.domain.Orders;
 
 import java.util.List;
@@ -9,6 +10,10 @@ public class OrdersService {
     private OrdersDAO ordersDAO = new OrdersDAO();
     public List<Orders> list() {
         return ordersDAO.queryMultiply("SELECT * FROM DBHW.Orders", Orders.class);
+    }
+
+    public Orders querySingle(String id) {
+        return ordersDAO.querySingle("SELECT * FROM DBHW.Orders WHERE Ono = ?", Orders.class, id);
     }
 
     public String deleteSingle(String deleteNum) {
